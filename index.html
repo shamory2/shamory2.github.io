@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>المهندس محمد توفيق المرزوكي | مشاريع التطبيقات</title>
+<meta name="description" content="معرض أعمال المهندس محمد توفيق المرزوكي: تطبيقات موبايل وويب بـ Flutter و PocketBase و .NET.">
+<meta name="theme-color" content="#0b1020">
+<meta property="og:title" content="المهندس محمد توفيق المرزوكي | مشاريع التطبيقات">
+<meta property="og:description" content="معرض أعمال تطبيقات الموبايل والويب.">
+<meta property="og:image" content="assets/me.jpg">
+<link rel="icon" href="assets/sunna3-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='dark'}
+</script>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <a class="brand" href="#top"><span class="brand-dot"></span>م. محمد المرزوكي</a>
+  <nav class="links">
+    <a href="#projects">المشاريع</a>
+    <a href="#about">نبذة</a>
+    <a href="#contact">تواصل</a>
+  </nav>
+  <button id="themeBtn" class="fbtn icon-btn" aria-label="تبديل الوضع الليلي والنهاري" title="الوضع الليلي / النهاري">
+    <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
+    <svg class="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg>
+  </button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-text" data-reveal>
+      <p class="eyebrow">مهندس برمجيات · تطبيقات موبايل وويب</p>
+      <h1>المهندس<br><span class="grad">محمد توفيق المرزوكي</span></h1>
+      <p class="lead">أبني تطبيقات متكاملة من الواجهة إلى الخلفية: إدارة مقاهٍ، توصيل، تتبّع ميداني، حجوزات، وصناعة محتوى بالذكاء الاصطناعي.</p>
+      <div class="cta">
+        <a class="fbtn primary" href="#projects">شاهد المشاريع</a>
+        <a class="fbtn ghost" href="https://wa.me/9647809655527" target="_blank" rel="noopener">واتساب</a>
+        <a class="fbtn ghost" href="tel:+9647809655527">اتصال</a>
+      </div>
+      <ul class="stats">
+        <li><b data-count="12">0</b><span>مشروعاً</span></li>
+        <li><b data-count="3">0</b><span>منصات: موبايل · ويب · سطح مكتب</span></li>
+        <li><b data-count="2">0</b><span>لغتان واجهة: عربي RTL وإنكليزي</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-3d" id="hero3d">
+      <div class="cube c1"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="cube c2"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="cube c3"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ring r1"></div><div class="ring r2"></div>
+      <figure class="photo">
+        <img src="assets/me.jpg" alt="المهندس محمد توفيق المرزوكي" width="900" height="1125">
+        <figcaption><b>م. محمد توفيق المرزوكي</b><span>Flutter · PocketBase · .NET</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="sec-head" data-reveal>
+      <h2>مشاريع التطبيقات</h2>
+      <p>اضغط على أي مشروع لمعاينته والتنقّل بين شاشاته يميناً أو يساراً.</p>
+    </div>
+    <div class="filters" id="filters" data-reveal></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="about" class="section about">
+    <div class="sec-head" data-reveal><h2>نبذة</h2></div>
+    <div class="about-grid">
+      <article class="card3d" data-reveal><h3>من الفكرة إلى النشر</h3><p>أصمّم وأبرمج التطبيق كاملاً: واجهة Flutter، قاعدة بيانات وخلفية PocketBase أو Firebase، وإشعارات ولوحات تحكم للإدارة.</p></article>
+      <article class="card3d" data-reveal><h3>أدوار وصلاحيات</h3><p>معظم المشاريع بعدة أدوار (مالك، كابتن، موظف، مندوب، زبون)، لكل دور شاشاته وصلاحياته.</p></article>
+      <article class="card3d" data-reveal><h3>عربي أولاً</h3><p>واجهات عربية RTL بتصميم عصري ودعم الوضع الليلي والنهاري، مع لهجات عراقية في المحتوى عند الحاجة.</p></article>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="sec-head" data-reveal>
+      <h2>تواصل معي</h2>
+      <p>جاهز لمشروعك القادم. اختر الطريقة الأنسب لك.</p>
+    </div>
+    <div class="contact-grid" id="contactGrid"></div>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="yr"></span> المهندس محمد توفيق المرزوكي · جميع الحقوق محفوظة</p>
+</footer>
+
+<!-- Preview modal -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="backdrop" data-close></div>
+  <div class="sheet">
+    <button class="fbtn icon-btn close" data-close aria-label="إغلاق">✕</button>
+    <div class="stage">
+      <button class="fbtn icon-btn nav-arrow next" id="nextBtn" aria-label="التالي">‹</button>
+      <div class="phone" id="phone"><div class="notch"></div><div class="screen" id="screen"></div></div>
+      <button class="fbtn icon-btn nav-arrow prev" id="prevBtn" aria-label="السابق">›</button>
+    </div>
+    <div class="dots" id="dots"></div>
+    <div class="info">
+      <h3 id="mTitle"></h3>
+      <p id="mDesc"></p>
+      <ul class="chips" id="mTags"></ul>
+      <ul class="feat" id="mFeat"></ul>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
