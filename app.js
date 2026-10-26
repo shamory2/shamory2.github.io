@@ -7,6 +7,11 @@
   /* ---------- data ---------- */
   var S = function (n) { return 'assets/shots/' + n + '.jpg'; };
   var PROJECTS = [
+    { id: 'mtedit', cat: 'tools', em: '📝', name: 'mt/edit – محرر مستندات', hue: '#8e7cf0', hue2: '#ff8fb3', live: 'https://shamory2.github.io/mt-edit-web/',
+      desc: 'محرر مستندات يشبه الوورد لأندرويد وللويب: تنسيق كامل، جداول وصور، صفحات بأحجام الورق، يفتح ملفات Word وPDF، مع مساعد اسمه حمشمش.',
+      tags: ['Flutter', 'Android / Web', 'Quill', 'عربي RTL'],
+      feat: ['شريط أدوات كامل للتنسيق والفقرات والقوائم والجداول والصور', 'بداية النص عربي أو إنجليزي أو تلقائي للنص المختلط حسب لوحة المفاتيح', 'فتح ملفات Word (docx) وPDF مع الجداول والألوان، وحفظ Word', 'خصائص الصفحة: حجم الورق والإطارات والهوامش ورأس وتذييل', 'حمشمش: مساعد يجيب عن أدوات التطبيق ويكتب معك'],
+      shots: ['mtedit-1', 'mtedit-2'].map(S) },
     { id: 'sunna3', cat: 'ai', em: '🎬', name: 'صُنّاع Sunna3', hue: '#6a4cff', hue2: '#c04cff',
       desc: 'منصة لصناعة فيديوهات الموشن بالذكاء الاصطناعي من فكرة واحدة، مع نشر تلقائي على فيسبوك وإنستغرام وتيك توك.',
       tags: ['Flutter', 'Node.js', 'PocketBase', 'AI'],
@@ -58,7 +63,7 @@
       tags: ['.NET', 'Blazor', 'WPF'],
       feat: ['نواة مشتركة TodoApp.Core', 'نسخة ويب Blazor', 'نسخة سطح مكتب WPF'] }
   ];
-  var CATS = { all: 'الكل', cafe: 'مقاهٍ ومطاعم', field: 'متابعة ميدانية', rent: 'حجوزات', delivery: 'توصيل', shop: 'متاجر وفواتير', ai: 'ذكاء اصطناعي', web: 'ويب وسطح المكتب' };
+  var CATS = { all: 'الكل', cafe: 'مقاهٍ ومطاعم', field: 'متابعة ميدانية', rent: 'حجوزات', delivery: 'توصيل', shop: 'متاجر وفواتير', ai: 'ذكاء اصطناعي', web: 'ويب وسطح المكتب', tools: 'محررات وأدوات' };
 
   var CONTACTS = [
     { k: 'اتصال', v: '0780 965 5527', href: 'tel:+9647809655527', c: '#2563eb', icon: 'M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z' },
@@ -100,6 +105,7 @@
       if (p.shots) { var im = new Image(); im.src = p.shots[0]; im.alt = ''; im.loading = 'lazy'; pic.appendChild(im); } else pic.appendChild(el('span', 'em', p.em));
       c.appendChild(pic); c.appendChild(el('h3', '', p.name)); c.appendChild(el('p', '', p.desc));
       var ul = el('ul', 'chips'); p.tags.forEach(function (t) { ul.appendChild(el('li', '', t)); }); c.appendChild(ul);
+      if (p.live) c.appendChild(el('span', 'livebadge', '● تجربة مباشرة'));
       c.appendChild(el('span', 'more', 'معاينة ←'));
       c.onclick = function () { openModal(p); };
       tilt(c, 9); grid.appendChild(c);
@@ -154,6 +160,7 @@
     proj = p; slides = buildSlides(p); lastFocus = document.activeElement;
     modal.style.setProperty('--hue', p.hue); modal.style.setProperty('--hue2', p.hue2);
     $('#mTitle').textContent = p.name; $('#mDesc').textContent = p.desc;
+    var lv = $('#mLive'); if (p.live) { lv.href = p.live; lv.hidden = false; } else { lv.hidden = true; }
     var t = $('#mTags'); t.innerHTML = ''; p.tags.forEach(function (x) { t.appendChild(el('li', '', x)); });
     var f = $('#mFeat'); f.innerHTML = ''; p.feat.forEach(function (x) { f.appendChild(el('li', '', x)); });
     dots.innerHTML = ''; slides.forEach(function (_, i) { var b = el('button'); b.setAttribute('aria-label', 'شاشة ' + (i + 1)); b.onclick = function () { show(i, i > idx ? 1 : -1); }; dots.appendChild(b); });
