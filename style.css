@@ -157,3 +157,8 @@ footer{text-align:center;color:var(--muted);padding:40px 16px 56px;font-size:.9r
 @keyframes face{from{transform:rotateX(14deg) rotateY(calc(var(--a) * -1))}to{transform:rotateX(14deg) rotateY(calc(var(--a) * -1 - 360deg))}}
 @keyframes bobt{0%,100%{margin-top:0}50%{margin-top:-8px}}
 @media (max-width:860px){.orbit{--R:min(200px,47vw)}.tile{width:54px;height:54px;left:-27px;top:-27px;border-radius:16px}.tile b{font-size:1.05rem}}
+
+.livebadge{position:absolute;top:14px;inset-inline-start:14px;font-size:.74rem;font-weight:800;color:#fff;background:linear-gradient(120deg,#10b981,#0ea5e9);padding:3px 10px;border-radius:999px;box-shadow:0 6px 14px -6px rgba(16,185,129,.7)}
+.pcard{position:relative}
+.live-btn{margin-top:14px;text-decoration:none}
+.live-btn[hidden]{display:none}
