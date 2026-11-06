@@ -7,6 +7,14 @@
   /* ---------- data ---------- */
   var S = function (n) { return 'assets/shots/' + n + '.jpg'; };
   var PROJECTS = [
+    { id: 'saydha', cat: 'auction', em: '🔨', name: 'صيدها Saydha – مزادات ومناقصات', hue: '#c9971c', hue2: '#7a5a0e', dl: 'https://github.com/shamory2/shamory2.github.io/releases/download/apps-v1/saydha.apk', dlSize: '65 MB',
+      desc: 'منصة مزادات ومناقصات عراقية بثلاث لغات (عربي، كردي، إنجليزي): مزايدة مباشرة لحظة بلحظة، إشعارات، وصل طلب قابل للطباعة، ودعم فني داخل التطبيق.',
+      tags: ['Flutter', 'Node.js', 'SQLite', 'WebSocket', 'Firebase FCM', 'عربي RTL'],
+      feat: ['مزايدة مباشرة مع تمديد تلقائي في آخر دقيقتين', 'تحقق من الرقم برمز واتساب، ونسيان وتغيير كلمة السر', 'إشعارات: تجاوز مزايدتك، فتح مزاد، باقي 4 دقائق، رد الدعم', 'مناقصات وإيصالات وطباعتها وسجل الطلبات', 'لوحة إدارة بالتطبيق والويب، وحظر بالجهاز، وحذف الحساب'] },
+    { id: 'solfly', cat: 'tools', em: '🎙️', name: 'سولفلي Solfly – الصوت إلى نص', hue: '#2563eb', hue2: '#06b6d4', dl: 'https://github.com/shamory2/shamory2.github.io/releases/download/apps-v1/solfly.apk', dlSize: '185 MB',
+      desc: 'تطبيق يحوّل الصوت إلى نص مكتوب بالعربية، لأندرويد وويندوز.',
+      tags: ['Flutter', 'Android / Windows', 'Vosk', 'عربي RTL'],
+      feat: ['إملاء صوتي إلى نص', 'يعمل على أندرويد وويندوز', 'واجهة عربية'] },
     { id: 'mtedit', cat: 'tools', em: '📝', name: 'mt/edit – محرر مستندات', hue: '#8e7cf0', hue2: '#ff8fb3', live: 'https://shamory2.github.io/mt-edit-web/',
       desc: 'محرر مستندات يشبه الوورد لأندرويد وللويب: تنسيق كامل، جداول وصور، صفحات بأحجام الورق، يفتح ملفات Word وPDF، مع مساعد اسمه حمشمش.',
       tags: ['Flutter', 'Android / Web', 'Quill', 'عربي RTL'],
@@ -68,7 +76,7 @@
       tags: ['.NET', 'Blazor', 'WPF'],
       feat: ['نواة مشتركة TodoApp.Core', 'نسخة ويب Blazor', 'نسخة سطح مكتب WPF'] }
   ];
-  var CATS = { all: 'الكل', cafe: 'مقاهٍ ومطاعم', field: 'متابعة ميدانية', rent: 'حجوزات', delivery: 'توصيل', shop: 'متاجر وفواتير', ai: 'ذكاء اصطناعي', web: 'ويب وسطح المكتب', tools: 'محررات وأدوات', nav: 'خرائط وملاحة' };
+  var CATS = { all: 'الكل', auction: 'مزادات', cafe: 'مقاهٍ ومطاعم', field: 'متابعة ميدانية', rent: 'حجوزات', delivery: 'توصيل', shop: 'متاجر وفواتير', ai: 'ذكاء اصطناعي', web: 'ويب وسطح المكتب', tools: 'محررات وأدوات', nav: 'خرائط وملاحة' };
 
   var CONTACTS = [
     { k: 'اتصال', v: '0780 965 5527', href: 'tel:+9647809655527', c: '#2563eb', icon: 'M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z' },
@@ -111,6 +119,7 @@
       c.appendChild(pic); c.appendChild(el('h3', '', p.name)); c.appendChild(el('p', '', p.desc));
       var ul = el('ul', 'chips'); p.tags.forEach(function (t) { ul.appendChild(el('li', '', t)); }); c.appendChild(ul);
       if (p.live) c.appendChild(el('span', 'livebadge', '● تجربة مباشرة'));
+      else if (p.dl) c.appendChild(el('span', 'livebadge', '⬇ APK'));
       c.appendChild(el('span', 'more', 'معاينة ←'));
       c.onclick = function () { openModal(p); };
       tilt(c, 9); grid.appendChild(c);
@@ -165,6 +174,7 @@
     proj = p; slides = buildSlides(p); lastFocus = document.activeElement;
     modal.style.setProperty('--hue', p.hue); modal.style.setProperty('--hue2', p.hue2);
     $('#mTitle').textContent = p.name; $('#mDesc').textContent = p.desc;
+    var dl = $('#mDl'); if (p.dl) { dl.href = p.dl; dl.textContent = '⬇ تحميل التطبيق (APK' + (p.dlSize ? ' · ' + p.dlSize : '') + ')'; dl.hidden = false; } else { dl.hidden = true; }
     var lv = $('#mLive'); if (p.live) { lv.href = p.live; lv.hidden = false; } else { lv.hidden = true; }
     var t = $('#mTags'); t.innerHTML = ''; p.tags.forEach(function (x) { t.appendChild(el('li', '', x)); });
     var f = $('#mFeat'); f.innerHTML = ''; p.feat.forEach(function (x) { f.appendChild(el('li', '', x)); });
